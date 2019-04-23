@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Hospital_Management_System.Models.Appoinment>
+
+@{
+	ViewBag.Title = "AppoinmentList";
+}
+
+<h2>Appoinment List</h2>
+
+<p>
+	@Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+	<tr>
+		<th>
+			@Html.DisplayName("Patient's Name")
+		</th>
+		<th>
+			@Html.DisplayName("Doctor's Name")
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.AppoinmentDate)
+		</th>
+		<th></th>
+	</tr>
+
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.PatientID)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.DoctorID)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.AppoinmentDate)
+			</td>
+			<td>
+				@Html.ActionLink("Edit", "Edit", new { id = item.ID }) 
+				@Html.ActionLink("Details", "Details", new { id = item.ID }) 
+				@Html.ActionLink("Delete", "Delete", new { id = item.ID })
+			</td>
+		</tr>
+	}
+
+</table>

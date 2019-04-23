@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Hospital_Management_System.Models.Category>
+@{
+	ViewBag.Title = "CategoryList";
+}
+
+<h2>Category List</h2>
+
+<p>
+	@Html.ActionLink("Save Another One", "SaveCategory")
+</p>
+<table class="table">
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.CategoryName)
+		</th>
+
+	</tr>
+
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.CategoryName)
+			</td>
+
+			<td>
+				@Html.ActionLink("Edit", "EditCategory", new { id = item.ID }) |
+				@Html.ActionLink("Delete", "DeleteCategory", new { id = item.ID })
+			</td>
+		</tr>
+	}
+
+</table>
